@@ -398,6 +398,20 @@ class SiteConfiguration(models.Model):
 
         return EdxRestApiClient(self.discovery_api_url, jwt=self.access_token)
 
+
+    @cached_property
+    def journal_discovery_api_client(self):
+        """
+        Returns an Journal API client to access the Discovery service.
+
+        Returns:
+            EdxRestApiClient: The client to access the Journal API in the Discovery service.
+        """
+        journal_discovery_url = self.discovery_api_url.replace('/api/v1/', '/journal/api/v1/')
+
+        return EdxRestApiClient(journal_discovery_url, jwt=self.access_token)
+
+
     @cached_property
     def embargo_api_client(self):
         """ Returns the URL for the embargo API """
