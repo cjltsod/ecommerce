@@ -34,3 +34,4 @@ requests==2.17.3
 sailthru-client==2.2.3
 six==1.10.0
 zeep==2.1.1
+spgateway-core==0.1.1
